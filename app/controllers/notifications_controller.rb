@@ -2,6 +2,7 @@ class NotificationsController < ApplicationController
 
   def new
     @notification = Notification.new
+    @notification.text
   end
 
   def create
@@ -13,9 +14,11 @@ class NotificationsController < ApplicationController
     # to the user!
     if @notification.save
     redirect_to new_notification_path
+    end
   end
 
   private
+
   def notification_params
     params.require(:notification).permit(:to_number)
   end
