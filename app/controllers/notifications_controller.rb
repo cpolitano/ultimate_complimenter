@@ -7,14 +7,12 @@ class NotificationsController < ApplicationController
 
   def create
     @notification = Notification.new(notification_params)
-
-
     # Do some stuff that checks whether the Notification has
     # the info you need, then sends it! Otherwise, display errors
     # to the user!
-    if @notification.save
-    redirect_to new_notification_path
-    end
+    #if @notification.save
+    redirect_to root_path
+    
   end
 
   private

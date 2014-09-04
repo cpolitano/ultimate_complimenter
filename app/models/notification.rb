@@ -5,14 +5,10 @@ class Notification
   attr_accessor :to_number
 
   def initialize
-    account_sid = "AC62f281552e14462e5080298a58d7ca04" 
-    #Credentials.credentials[:twilio_account_sid]
-    auth_token = "d84d385d4f93352d8d118fd057e8b346"
-    #Credentials.credentials[:twilio_account_token]
+    account_sid = Credentials.credentials[:twilio_account_sid]
+    auth_token = Credentials.credentials[:twilio_account_token]
     @client = Twilio::REST::Client.new(account_sid, auth_token)
   end
-
-  #/2010-04-01/Accounts/:twilio_account_sid/Messages
 
   def text
     # Sends a text to your phone number
@@ -29,4 +25,4 @@ class Notification
     compliments.sample
   end
 
-  end
+end
